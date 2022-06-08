@@ -3,6 +3,12 @@
 const menu = () => document.getElementById('menu');
 const checkout = () => document.getElementById('checkout');
 
+//DOM Render functions
+
+//Initial Render
+
+
+
 //Event handlers
 
 const renderMenu = (e) => {
