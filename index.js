@@ -41,7 +41,7 @@ const renderMenu = (e) => {
 
     //New main body content when menu is clicked
     const h2 = document.createElement('h2');
-    h2.innertext = "Refresco's Menu"
+    h2.innerHTML = "Refresco's Menu"
     mainBody().appendChild(h2);
 
     //initialize menu data when menu is clicked
