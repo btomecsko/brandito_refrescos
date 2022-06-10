@@ -1,8 +1,50 @@
-#body_container{
+#main_body{
     padding: 0 5px 0 5px;
     background-color: white;
 }
 
 h1{
     text-align: center;
+    font-family: "Lucida Handwriting", cursive;
+    font-weight: bold;
 }
+
+h2{
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .menuCard {
+      box-shadow:  0 4px 8px 0
+      rgba (o,0,0,0.2);
+      transition: 0.3s;
+      border-radius: 15px;
+      border: solid;
+      background-color: blue;
+  }
+
+  .menuCard img{
+      border-radius: 15px;
+      width: 100%;
+  }
+
+  .menuCard h3{
+      font-size: x-large;
+      text-align: center;
+      font-family: "Lucida Handwriting", cursive;
+      font-weight: bold;
+  }
+
+  .menuCard p{
+    font-size: medium;
+    text-align: center;
+    font-family: Papyrus, fantasy;
+    font-style: italic;
+}
+ 

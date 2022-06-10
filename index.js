@@ -8,9 +8,9 @@ const checkout = () => document.getElementById('checkout');
 
 function renderMenuItem(menuItem){
     //build menu item card
-    let card = document.createElement("li")
-    card.className = 'card'
-    card.innerHTML = `
+    let menuCard = document.createElement("li")
+    menuCard.className = 'menuCard'
+    menuCard.innerHTML = `
         <img src="${menuItem.imageURL}">
         <div class="content">
           <h3>${menuItem.name}</h3>
@@ -20,7 +20,7 @@ function renderMenuItem(menuItem){
         <button>Order: ${menuItem.cost}</button>
         </div>
     `
-    document.querySelector('#menu_items').appendChild(card)
+    document.querySelector('#menu_items').appendChild(menuCard)
 }
 
 
@@ -29,8 +29,6 @@ function renderMenuItem(menuItem){
 function initialize(){
     menuData.filter(menuItem => renderMenuItem(menuItem))
 }
-
-initialize()
 
 
 //Event handlers
@@ -41,8 +39,13 @@ const renderMenu = (e) => {
     //removing the main body or about when menu is clicked
     resetMainBody();
 
-    //adding render function to populate the menu items
-    
+    //New main body content when menu is clicked
+    const h2 = document.createElement('h2');
+    h2.innertext = "Refresco's Menu"
+    mainBody().appendChild(h2);
+
+    //initialize menu data when menu is clicked
+    initialize();
     
 }
 
