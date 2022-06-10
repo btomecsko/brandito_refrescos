@@ -50,7 +50,13 @@ const renderMenu = (e) => {
     
 }
 
+const renderCheckout = (e) => {
+    e.preventDefault();
 
+    resetMainBody();
+
+    alert('hi, do I work')
+}
 
 //Event listeners
 
@@ -60,13 +66,19 @@ const menuEvent = () => {
 
 const orderEvent = () => {
     order().addEventListener('click', renderMenu)
-    
+}
+
+const checkoutEvent = () => {
+    checkout().addEventListener('click', renderCheckout)
 }
 
 const resetMainBody = () => {
     mainBody().innerHTML = "";
 }
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
     menuEvent();
+    checkoutEvent();
 })
