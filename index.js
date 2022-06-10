@@ -3,6 +3,7 @@
 const mainBody = () => document.getElementById('main_body')
 const menu = () => document.getElementById('menu');
 const checkout = () => document.getElementById('checkout');
+const order = () => document.getElementById('order');
 
 //DOM Render functions variable
 
@@ -17,7 +18,7 @@ function renderMenuItem(menuItem){
           <p>${menuItem.description}</p>
         </div>
         <div>
-        <button>Order: ${menuItem.cost}</button>
+        <button id="order">Order: ${menuItem.cost}</button>
         </div>
     `
     document.querySelector('#menu_items').appendChild(menuCard)
@@ -49,10 +50,17 @@ const renderMenu = (e) => {
     
 }
 
+
+
 //Event listeners
 
 const menuEvent = () => {
     menu().addEventListener('click', renderMenu)
+}
+
+const orderEvent = () => {
+    order().addEventListener('click', renderMenu)
+    
 }
 
 const resetMainBody = () => {
