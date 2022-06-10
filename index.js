@@ -3,7 +3,6 @@
 const mainBody = () => document.getElementById('main_body')
 const menu = () => document.getElementById('menu');
 const checkout = () => document.getElementById('checkout');
-const order = () => document.getElementById('order');
 const menuBody = () => document.getElementById('menu_body')
 
 //DOM Render functions variable
@@ -22,13 +21,20 @@ function renderMenuItem(menuItem){
         <button id="order">Order: ${menuItem.cost}</button>
         </div>
     `
+
+    //add event listener for submitting function
+    menuCard.querySelector('#order').addEventListener('click', () => {
+        alert('hi, do I work')
+    })
+
+    //add menu card to menu body
     document.querySelector('#menu_items').appendChild(menuCard)
 }
 
 
 //Initial Render
 
-function initialize(){
+function menuInitialize(){
     menuData.filter(menuItem => renderMenuItem(menuItem))
 }
 
@@ -43,11 +49,11 @@ const renderMenu = (e) => {
 
     //New main body content when menu is clicked
     const h2 = document.createElement('h2');
-    h2.innerHTML = "Refresco's Menu"
+    h2.textContent = "Refresco's Menu"
     mainBody().appendChild(h2);
 
     //initialize menu data when menu is clicked
-    initialize();
+    menuInitialize();
     
 }
 
@@ -60,29 +66,32 @@ const renderCheckout = (e) => {
     alert('hi, do I work')
 }
 
+
 //Event listeners
 
 const menuEvent = () => {
     menu().addEventListener('click', renderMenu)
 }
 
-const orderEvent = () => {
-    order().addEventListener('click', renderMenu)
-}
+//const orderEvent = () => {
+  //  order().addEventListener('click', submitOrder)
+//}
 
 const checkoutEvent = () => {
     checkout().addEventListener('click', renderCheckout)
 }
 
+//Reset variables that allow the main and menu body to be changed to an empty object when a specific item is clicked
 const resetMainBody = () => {
-    mainBody().innerHTML = "";
+    mainBody().textContent = "";
 }
 
 const resetMenu = () => {
-    menuBody().innerHTML ="";
+    menuBody().textContent ="";
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     menuEvent();
     checkoutEvent();
+    
 })
