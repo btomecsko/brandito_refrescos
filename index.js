@@ -4,6 +4,7 @@ const mainBody = () => document.getElementById('main_body')
 const menu = () => document.getElementById('menu');
 const checkout = () => document.getElementById('checkout');
 const order = () => document.getElementById('order');
+const menuBody = () => document.getElementById('menu_body')
 
 //DOM Render functions variable
 
@@ -54,6 +55,7 @@ const renderCheckout = (e) => {
     e.preventDefault();
 
     resetMainBody();
+    resetMenu();
 
     alert('hi, do I work')
 }
@@ -76,7 +78,9 @@ const resetMainBody = () => {
     mainBody().innerHTML = "";
 }
 
-
+const resetMenu = () => {
+    menuBody().innerHTML ="";
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     menuEvent();
