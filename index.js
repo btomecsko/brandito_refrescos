@@ -23,7 +23,7 @@ function renderMenuItem(menuItem){
         </div>
     `
 
-    //add event listener for submitting function
+    //add event listener for submitting order function
     menuCard.querySelector('#order').addEventListener('click', () => {
         alert('hi, do I work')
     })
