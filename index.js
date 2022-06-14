@@ -32,13 +32,13 @@ function renderMenuItem(menuItem){
     document.querySelector('#menu_items').appendChild(menuCard)
 }
 
+//Fetch makes a request to get all the menu items information from the server
 
-//Initial Render
-
-function menuInitialize(){
-    menuData.forEach(menuItem => renderMenuItem(menuItem))
+function getMenuItems(){
+    fetch('http://localhost:3000/menuData')
+    .then(res => res.json())
+    .then(menuData => menuData.forEach(menuItem => renderMenuItem(menuItem)))
 }
-
 
 //Event handlers
 
@@ -54,7 +54,7 @@ const renderMenu = (e) => {
     mainBody().appendChild(h2);
 
     //initialize menu data when menu is clicked
-    menuInitialize();
+    getMenuItems();
     
 }
 
