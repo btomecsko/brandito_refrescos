@@ -6,8 +6,63 @@ const checkout = () => document.getElementById('checkout');
 const menuBody = () => document.getElementById('menu_body')
 const menuItem = () => document.getElementById('menu_items');
 
-//DOM Render functions variable
+//Event listeners
 
+//Menu event listener
+const menuEvent = () => {
+    menu().addEventListener('click', renderMenu)
+}
+
+//checkout event listener
+const checkoutEvent = () => {
+    checkout().addEventListener('click', renderCheckout)
+}
+
+//Reset variables that allow the main and menu body to be changed to an empty object when a specific item is clicked
+const resetMainBody = () => {
+    mainBody().textContent = "";
+}
+
+const resetMenu = () => {
+    menuItem().textContent ="";
+}
+//DOM Content Loaded
+document.addEventListener('DOMContentLoaded', () => {
+    menuEvent();
+    checkoutEvent();
+    
+})
+
+//Event handlers
+//Menu event handler
+const renderMenu = (e) => {
+    e.preventDefault();
+
+    //removing the main body or about when menu is clicked
+    resetMainBody();
+
+    //New main body content when menu is clicked
+    const h2 = document.createElement('h2');
+    h2.textContent = "Refresco's Menu"
+    mainBody().appendChild(h2);
+
+    //initialize menu data when menu is clicked
+    getMenuItems();
+    
+}
+//Checkout event handler
+const renderCheckout = (e) => {
+    e.preventDefault();
+    //debugger;
+    resetMainBody();
+    resetMenu();
+    //debugger;
+    alert('hi, do I work')
+}
+
+
+//DOM Render functions variable
+//Menu DOM Render Function
 function renderMenuItem(menuItem){
     //build menu item card
     let menuCard = document.createElement("li")
@@ -40,59 +95,5 @@ function getMenuItems(){
     .then(menuData => menuData.forEach(menuItem => renderMenuItem(menuItem)))
 }
 
-//Event handlers
-
-const renderMenu = (e) => {
-    e.preventDefault();
-
-    //removing the main body or about when menu is clicked
-    resetMainBody();
-
-    //New main body content when menu is clicked
-    const h2 = document.createElement('h2');
-    h2.textContent = "Refresco's Menu"
-    mainBody().appendChild(h2);
-
-    //initialize menu data when menu is clicked
-    getMenuItems();
-    
-}
-
-const renderCheckout = (e) => {
-    e.preventDefault();
-    //debugger;
-    resetMainBody();
-    resetMenu();
-    //debugger;
-    alert('hi, do I work')
-}
 
 
-//Event listeners
-
-const menuEvent = () => {
-    menu().addEventListener('click', renderMenu)
-}
-
-//const orderEvent = () => {
-  //  order().addEventListener('click', submitOrder)
-//}
-
-const checkoutEvent = () => {
-    checkout().addEventListener('click', renderCheckout)
-}
-
-//Reset variables that allow the main and menu body to be changed to an empty object when a specific item is clicked
-const resetMainBody = () => {
-    mainBody().textContent = "";
-}
-
-const resetMenu = () => {
-    menuItem().textContent ="";
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    menuEvent();
-    checkoutEvent();
-    
-})
