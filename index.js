@@ -4,6 +4,7 @@ const mainBody = () => document.getElementById('main_body')
 const menu = () => document.getElementById('menu');
 const checkout = () => document.getElementById('checkout');
 const menuBody = () => document.getElementById('menu_body')
+const menuItem = () => document.getElementById('menu_items');
 
 //DOM Render functions variable
 
@@ -35,7 +36,7 @@ function renderMenuItem(menuItem){
 //Initial Render
 
 function menuInitialize(){
-    menuData.filter(menuItem => renderMenuItem(menuItem))
+    menuData.forEach(menuItem => renderMenuItem(menuItem))
 }
 
 
@@ -59,10 +60,10 @@ const renderMenu = (e) => {
 
 const renderCheckout = (e) => {
     e.preventDefault();
-
+    //debugger;
     resetMainBody();
     resetMenu();
-
+    //debugger;
     alert('hi, do I work')
 }
 
@@ -87,7 +88,7 @@ const resetMainBody = () => {
 }
 
 const resetMenu = () => {
-    menuBody().textContent ="";
+    menuItem().textContent ="";
 }
 
 document.addEventListener('DOMContentLoaded', () => {
