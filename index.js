@@ -15,7 +15,7 @@ const menuEvent = () => {
 
 //checkout event listener
 const checkoutEvent = () => {
-    checkout().addEventListener('click', renderCheckout)
+    checkout().addEventListener('submit', renderCheckout)
 }
 
 //Reset variables that allow the main and menu body to be changed to an empty object when a specific item is clicked

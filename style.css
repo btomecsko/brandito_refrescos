@@ -1,6 +1,6 @@
 #main_body{
     padding: 0 5px 0 5px;
-    background-color: white;
+    
 }
 
 h1{
@@ -13,11 +13,22 @@ h2{
     text-align: center;
 }
 
+body{
+    background-color: #FC5D35;
+}
+
+
+button{
+    border-radius: 0 15px 0 15px;
+    padding: auto;
+    margin-left: 20px;
+}
+
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     max-width: 900px;
     margin: 0 auto;
+    justify-items: center;
   }
 
   .menuCard {
@@ -26,7 +37,7 @@ h2{
       transition: 0.3s;
       border-radius: 15px;
       border: solid;
-      background-color: blue;
+      background-color: #F8C8A2;
   }
 
   .menuCard img{
