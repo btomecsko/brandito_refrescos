@@ -17,12 +17,11 @@ body{
     background-color: #FC5D35;
 }
 
-
 button{
-    border-radius: 0 15px 0 15px;
+    border-radius: 15px;
     padding: auto;
-    margin-left: 20px;
 }
+
 
 .grid-container {
     display: grid;

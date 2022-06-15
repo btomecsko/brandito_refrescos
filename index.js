@@ -15,7 +15,7 @@ const menuEvent = () => {
 
 //checkout event listener
 const checkoutEvent = () => {
-    checkout().addEventListener('submit', renderCheckout)
+    checkout().addEventListener('click', renderCheckout)
 }
 
 //Reset variables that allow the main and menu body to be changed to an empty object when a specific item is clicked
@@ -79,7 +79,7 @@ function renderMenuItem(menuItem){
     `
 
     //add event listener for submitting order function
-    menuCard.querySelector('#order').addEventListener('click', () => {
+    menuCard.querySelector('#order').addEventListener('submit', () => {
         alert('hi, do I work')
     })
 
