@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="style.css">
+
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     
+     
+    <title>Brandito's Refrescos</title>
+</head>
+<body>
+    <!-- Navigation items-->
+    <nav style = "background-color: #FFA332;">
+        <div class="nav-wrapper container">
+          <a href="#" class="brand-logo">Brandito's Refrescos</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#" id="menu">Menu</a></li>
+            <li><a class="waves-effect waves-light btn blue-grey darken-4" id="checkout">Cart</a></li>
+          </ul>
+        </div>
+      </nav>
+    
+    <!--Container with body of content-->
+    <!--Main Body section-->
+    <div class="container" id="main_body">
+        <h1>Bienvendios to Brandito's Refrescos!</h1>
+        <h2>Here we are grounded by our culture and love for Aqua Frescas!</h2>
+    </div>
+    <!--Menu Body section-->
+    <div class="grid-container" id="menu_body">
+        <ul id="menu_items" class="cards">
+            <!--Menu items go here-->
+        </ul>
+    </div>
+    <!--Cart Body section-->
+    <section class="container content-section" id="cart_body">
+        <h3 class="section-header">Cart</h3>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">Item</span>
+            <span class="cart-price cart-header cart-column">Price</span>
+            <span class="cart-quantity cart-header cart-column">Amount</span>
+        </div>
+
+        <!--REVIEWING HOW TO USE IN JS-->
+        <div class="cart-items">
+            <div class="cart-row">
+                <div class="cart-item cart-column">
+                    <img class="cart-item-image" src="Images/Shirt.png" width="100" height="100">
+                    <span class="cart-item-title">T-Shirt</span>
+                </div>
+                <span class="cart-price cart-column">$19.99</span>
+                <div class="cart-quantity cart-column">
+                    <input class="cart-quantity-input" type="number" value="1">
+                    <button class="btn btn-danger" type="button">Remove</button>
+                </div>
+            </div>
+            <div class="cart-row">
+                <div class="cart-item cart-column">
+                    <img class="cart-item-image" src="Images/Album 3.png" width="100" height="100">
+                    <span class="cart-item-title">Album 3</span>
+                </div>
+                <span class="cart-price cart-column">$9.99</span>
+                <div class="cart-quantity cart-column">
+                    <input class="cart-quantity-input" type="number" value="2">
+                    <button class="btn btn-danger" type="button">Remove</button>
+                </div>
+            </div>
+        </div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">$39.97</span>
+        </div>
+        <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+    </section>
+
+
+    <script src="index.js"></script>
+</body>
+</html>
