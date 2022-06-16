@@ -1,60 +1,7 @@
 #main_body{
-    padding: 0 5px 0 5px;
-    
-}
-
-h1{
-    text-align: center;
-    font-family: "Lucida Handwriting", cursive;
-    font-weight: bold;
+    margin-top: 25px; 
 }
 
 h2{
     text-align: center;
 }
-
-body{
-    background-color: #FC5D35;
-}
-
-button{
-    border-radius: 15px;
-    padding: auto;
-}
-
-
-.grid-container {
-    display: grid;
-    max-width: 900px;
-    margin: 0 auto;
-    justify-items: center;
-  }
-
-  .menuCard {
-      box-shadow:  0 4px 8px 0
-      rgba (o,0,0,0.2);
-      transition: 0.3s;
-      border-radius: 15px;
-      border: solid;
-      background-color: #F8C8A2;
-  }
-
-  .menuCard img{
-      border-radius: 15px;
-      width: 100%;
-  }
-
-  .menuCard h3{
-      font-size: x-large;
-      text-align: center;
-      font-family: "Lucida Handwriting", cursive;
-      font-weight: bold;
-  }
-
-  .menuCard p{
-    font-size: medium;
-    text-align: center;
-    font-family: Papyrus, fantasy;
-    font-style: italic;
-}
- 

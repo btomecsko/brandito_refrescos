@@ -1,10 +1,9 @@
-//HTML ids to variables
-
 const mainBody = () => document.getElementById('main_body')
 const menu = () => document.getElementById('menu');
 const checkout = () => document.getElementById('checkout');
 const menuBody = () => document.getElementById('menu_body')
-const menuItem = () => document.getElementById('menu_items');
+//const menuItem = () => document.getElementById('menu_items');
+const orderItem = () => document.getElementById('order');
 
 //Event listeners
 
@@ -24,7 +23,7 @@ const resetMainBody = () => {
 }
 
 const resetMenu = () => {
-    menuItem().textContent ="";
+    menuBody().textContent ="";
 }
 //DOM Content Loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -63,28 +62,26 @@ const renderCheckout = (e) => {
 
 //DOM Render functions variable
 //Menu DOM Render Function
-function renderMenuItem(menuItem){
+function renderMenuItem(menuItems){
     //build menu item card
-    let menuCard = document.createElement("li")
-    menuCard.className = 'menuCard'
+    const menuCard = document.createElement("div")
+    menuCard.className = 'card'
     menuCard.innerHTML = `
-        <img src="${menuItem.imageURL}">
-        <div class="content">
-          <h3>${menuItem.name}</h3>
-          <p>${menuItem.description}</p>
-        </div>
-        <div>
-        <button id="order">Order: ${menuItem.cost}</button>
+        <img src="${menuItems.imageURL}" class="card-img-top" alt="${menuItems.altText}">
+        <div class="card-body">
+          <h5 class="card-title">${menuItems.name}</h5>
+          <p class="card-text">${menuItems.description}</p>
+          <a href="#" class="btn btn-primary" id="order">Add To Cart: ${menuItems.cost}</a>
         </div>
     `
 
     //add event listener for submitting order function
-    menuCard.querySelector('#order').addEventListener('submit', () => {
-        alert('hi, do I work')
-    })
+    //orderItem().addEventListener('submit', () => {
+       // alert('hi, do I work')
+    //})
 
     //add menu card to menu body
-    document.querySelector('#menu_items').appendChild(menuCard)
+    document.querySelector('#menu_body').appendChild(menuCard)
 }
 
 //Fetch makes a request to get all the menu items information from the server
@@ -92,8 +89,5 @@ function renderMenuItem(menuItem){
 function getMenuItems(){
     fetch('http://localhost:3000/menuData')
     .then(res => res.json())
-    .then(menuData => menuData.forEach(menuItem => renderMenuItem(menuItem)))
+    .then(menuData => menuData.forEach(menuItems => renderMenuItem(menuItems)))
 }
-
-
-

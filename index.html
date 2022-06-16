@@ -8,38 +8,44 @@
     <!--Custom CSS-->
     <link rel="stylesheet" href="style.css">
 
-     <!-- Compiled and minified CSS -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-     <!-- Compiled and minified JavaScript -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-     
-     
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <title>Brandito's Refrescos</title>
 </head>
+
 <body>
-    <!-- Navigation items-->
-    <nav style = "background-color: #FFA332;">
-        <div class="nav-wrapper container">
-          <a href="#" class="brand-logo">Brandito's Refrescos</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#" id="menu">Menu</a></li>
-            <li><a class="waves-effect waves-light btn blue-grey darken-4" id="checkout">Checkout</a></li>
+    <!--Navigation-->
+    <section id="navBar">
+        <ul class="nav nav-pills" style = "background-color: #FFA332;">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Brandito's Refrescos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="menu">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#" id="checkout">Cart</a>
+            </li>
           </ul>
+    </section>
+    <div class="container">
+        <!--Main Body--> 
+        <div class="row" id="main_body">
+            <h2>Bienvendios to Brandito's Refrescos!</h2>
+            <p>Here we are grounded by our culture and love for Aqua Frescas!</p>
         </div>
-      </nav>
-    
-      <!--Container with body of content-->
+        <!--Menu Body--> 
+        <div class="row">
+            <div class="col">
 
-      <div class="container" id="main_body">
-        <h1>Bienvendios to Brandito's Refrescos!</h1>
-        <h2>Here we are grounded by our culture and love for Aqua Frescas!</h2>
-      </div>
+            </div>
+            <div class="col" id="menu_body">
+            <!--Menu Items Go Here-->
+            </div>
+            <div class="col">
 
-    <div class="grid-container" id="menu_body">
-        <ul id="menu_items" class="cards">
-            <!--Menu items go here-->
-        </ul>
+            </div>
+        </div>
     </div>
     <script src="index.js"></script>
 </body>
