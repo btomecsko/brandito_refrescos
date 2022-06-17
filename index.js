@@ -97,8 +97,12 @@ function renderMenuItem(menuItems){
     `
 
     //add event listener for submitting order function
-    menuCard.querySelector('#order').addEventListener('click', () => {
+    menuCard.querySelector('#order').addEventListener('click', (e) => {
+        e.preventDefault
+        let orderCard = [];
+        orderCard.push(menuCard);
         alert('hi, do I work')
+        console.log(orderCard)
     })
 
     //add menu card to menu body
