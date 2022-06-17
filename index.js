@@ -1,11 +1,22 @@
+//Variables for Node IDs
+const mainMenu = () => document.getElementById('main_menu')
 const mainBody = () => document.getElementById('main_body')
 const menu = () => document.getElementById('menu');
 const checkout = () => document.getElementById('checkout');
-const menuBody = () => document.getElementById('menu_body')
-//const menuItem = () => document.getElementById('menu_items');
-const orderItem = () => document.getElementById('order');
+const menuBody = () => document.getElementById('menu_body');
+
 
 //Event listeners
+
+//Main Body event listner
+
+const mainEvent = () => {
+    mainMenu().addEventListener('click', () => {
+        mainBody();
+        alert('hi do I work')
+    })
+}
+
 
 //Menu event listener
 const menuEvent = () => {
@@ -25,8 +36,11 @@ const resetMainBody = () => {
 const resetMenu = () => {
     menuBody().textContent ="";
 }
+
+
 //DOM Content Loaded
 document.addEventListener('DOMContentLoaded', () => {
+    mainEvent();
     menuEvent();
     checkoutEvent();
     
@@ -34,16 +48,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //Event handlers
 //Menu event handler
+
 const renderMenu = (e) => {
     e.preventDefault();
 
     //removing the main body or about when menu is clicked
     resetMainBody();
+    
 
     //New main body content when menu is clicked
-    const h2 = document.createElement('h2');
-    h2.textContent = "Refresco's Menu"
-    mainBody().appendChild(h2);
+    const menuTitle = document.createElement('h2');
+    menuTitle.textContent = "Refresco's Menu"
+    mainBody().appendChild(menuTitle);
 
     //initialize menu data when menu is clicked
     getMenuItems();
@@ -56,6 +72,11 @@ const renderCheckout = (e) => {
     resetMainBody();
     resetMenu();
     //debugger;
+
+    //Cart Main Body Content
+    const cartTitle = document.createElement('h2');
+    cartTitle.textContent = "Cart";
+    mainBody().appendChild(cartTitle);
     alert('hi, do I work')
 }
 
@@ -76,9 +97,9 @@ function renderMenuItem(menuItems){
     `
 
     //add event listener for submitting order function
-    //orderItem().addEventListener('submit', () => {
-       // alert('hi, do I work')
-    //})
+    menuCard.querySelector('#order').addEventListener('click', () => {
+        alert('hi, do I work')
+    })
 
     //add menu card to menu body
     document.querySelector('#menu_body').appendChild(menuCard)
