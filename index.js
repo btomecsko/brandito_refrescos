@@ -18,6 +18,13 @@ const checkoutEvent = () => {
     checkout().addEventListener('click', renderCheckout)
 }
 
+const formSubmit = () => {
+    formBody().addEventListener('submit', (e) => {
+        e.preventDefault();
+        console.log(e.target.inputEmail4.value)
+    })
+}
+
 //Reset variables that allow the main and menu body to be changed to an empty object when a specific item is clicked
 const resetMainBody = () => {
     mainBody().textContent = "";
@@ -36,6 +43,7 @@ const resetCart = () => {
 document.addEventListener('DOMContentLoaded', () => {
     menuEvent();
     checkoutEvent();
+    formSubmit();
     
 })
 
