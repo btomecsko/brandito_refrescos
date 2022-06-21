@@ -1,25 +1,13 @@
 //Variables for Node IDs
-//const mainMenu = () => document.getElementById('main_menu')
 const mainBody = () => document.getElementById('main_body')
 const menu = () => document.getElementById('menu');
 const checkout = () => document.getElementById('checkout');
 const menuBody = () => document.getElementById('menu_body');
+const formBody = () => document.getElementById('form_body')
 const cartBody = () => document.getElementById('cart_body');
-const addOrder = () => document.getElementById('order');
 
 
 //Event listeners
-
-//Main Body event listner
-
-//const mainEvent = () => {
-  //  mainMenu().addEventListener('click', () => {
-    //    mainBody();
-      //  alert('hi do I work')
-    //})
-//}
-
-
 //Menu event listener
 const menuEvent = () => {
     menu().addEventListener('click', renderMenu)
@@ -28,12 +16,6 @@ const menuEvent = () => {
 //checkout event listener
 const checkoutEvent = () => {
     checkout().addEventListener('click', renderCheckout)
-}
-
-const orderEvent = () => {
-    addOrder().addEventListener('click', () => {
-        alert('hi do I work')
-    })
 }
 
 //Reset variables that allow the main and menu body to be changed to an empty object when a specific item is clicked
@@ -45,10 +27,13 @@ const resetMenu = () => {
     menuBody().textContent ="";
 }
 
+const resetCart = () => {
+    cartBody().textContent = "";
+}
+
 
 //DOM Content Loaded
 document.addEventListener('DOMContentLoaded', () => {
-    //mainEvent();
     menuEvent();
     checkoutEvent();
     
@@ -62,7 +47,7 @@ const renderMenu = (e) => {
 
     //removing the main body or about when menu is clicked
     resetMainBody();
-    
+    resetCart();
 
     //New main body content when menu is clicked
     const menuTitle = document.createElement('h2');
@@ -74,7 +59,7 @@ const renderMenu = (e) => {
     
 }
 //Checkout event handler
-const renderCheckout = function renderCheckout(e) {
+const renderCheckout = (e) => {
     e.preventDefault();
     //debugger;
     resetMainBody();
@@ -105,21 +90,17 @@ function renderMenuItem(menuItems){
     `
 
     //add event listener for submitting order function
-    //menuCard.querySelector('#order').addEventListener('click', (e) => {
-      //  e.preventDefault
-        //let orderCard = [];
-        //orderCard.push(this);
-        //document.querySelector('#cart_body').appendChild(orderCard);
-        //alert('hi, do I work')
-        //console.log(orderCard)
-
-    //})
+    menuCard.querySelector('#order').addEventListener('click', (e) => {
+        e.preventDefault
+        let orderCard = [];
+        orderCard.push(menuCard);
+        alert('hi, do I work')
+        console.log(orderCard)
+    })
 
     //add menu card to menu body
     document.querySelector('#menu_body').appendChild(menuCard)
 }
-
-
 
 //Fetch makes a request to get all the menu items information from the server
 
