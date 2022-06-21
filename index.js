@@ -3,7 +3,7 @@ const mainBody = () => document.getElementById('main_body')
 const menu = () => document.getElementById('menu');
 const checkout = () => document.getElementById('checkout');
 const menuBody = () => document.getElementById('menu_body');
-const formBody = () => document.getElementById('form_body')
+const form = () => document.getElementById('form_body')
 const cartBody = () => document.getElementById('cart_body');
 
 
@@ -19,10 +19,7 @@ const checkoutEvent = () => {
 }
 
 const formSubmit = () => {
-    formBody().addEventListener('submit', (e) => {
-        e.preventDefault();
-        console.log(e.target.inputEmail4.value)
-    })
+    form().addEventListener('submit', renderForm)
 }
 
 //Reset variables that allow the main and menu body to be changed to an empty object when a specific item is clicked
@@ -108,6 +105,95 @@ function renderMenuItem(menuItems){
 
     //add menu card to menu body
     document.querySelector('#menu_body').appendChild(menuCard)
+}
+
+//Form javascript functionality
+
+//Show a demo message with input
+
+function formMessage(input, message, type) {
+
+    //create a variable for the small element in the form
+    const formMsg = input.parentNode.querySelector("small");
+    formMsg.innerText = message;
+    // update the class dependent on the input
+    input.className = type ? "success" : "error";
+    return type;
+}
+
+function formError(input, message) {
+    return formMessage(input, message, false);
+}
+
+function formSuccess(input) {
+    return formMessage(input, "", true);
+}
+
+function hasValue(input, message) {
+    if (input.value.trim() === "") {
+        return formError(input, message);
+    }
+    return formSuccess(input);
+}
+
+// show a message with a type of the input
+function showMessage(input, message, type) {
+	// get the small element and set the message
+	const msg = input.parentNode.querySelector("small");
+	msg.innerText = message;
+	// update the class for the input
+	input.className = type ? "success" : "error";
+	return type;
+}
+
+function showError(input, message) {
+	return showMessage(input, message, false);
+}
+
+function showSuccess(input) {
+	return showMessage(input, "", true);
+}
+
+function hasValue(input, message) {
+	if (input.value.trim() === "") {
+		return showError(input, message);
+	}
+	return showSuccess(input);
+}
+
+function validateEmail(input, requiredMsg, invalidMsg) {
+	// check if the value is not empty
+	if (!hasValue(input, requiredMsg)) {
+		return false;
+	}
+	// validate email format
+	const emailRegex =
+		/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+	const email = input.value.trim();
+	if (!emailRegex.test(email)) {
+		return showError(input, invalidMsg);
+	}
+	return true;
+}
+
+//Form variables
+const NAME_REQUIRED = "Please enter your name";
+const EMAIL_REQUIRED = "Please enter your email";
+const EMAIL_INVALID = "Please enter a correct email address format";
+
+//Form event handler
+const renderForm = (e) => {
+    e.preventDefault();
+
+    //validate form
+    let nameValid = hasValue(document.getElementById('full_name'), NAME_REQUIRED)
+    let emailValid = validateEmail(document.getElementById('inputEmail4'), EMAIL_REQUIRED, EMAIL_INVALID);
+    //if valid, submit form
+    if (nameValid && emailValid) {
+        alert("Demo! No Form was posted");
+    }
+
 }
 
 //Fetch makes a request to get all the menu items information from the server
