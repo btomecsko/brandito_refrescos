@@ -23,9 +23,9 @@ const menuEvent = () => {
 const checkoutEvent = () => {
     checkout().addEventListener('click', renderCheckout)
 }
-
+//form event listener
 const formSubmit = () => {
-    form().addEventListener('submit', renderForm)
+    form().addEventListener('submit', renderForm);
 }
 
 //Reset variables that allow the main and menu body to be changed to an empty object when a specific item is clicked
@@ -38,7 +38,7 @@ const resetMenu = () => {
 }
 
 const resetCart = () => {
-    form().textContent = "";
+    cartBody().textContent = "";
 }
 
 
@@ -88,12 +88,11 @@ const renderCheckout = (e) => {
     resetMenu();
     //debugger;
 
-    //Cart Main Body Content
-    const cartTitle = document.createElement('h2');
-    cartTitle.textContent = "Cart";
-    mainBody().appendChild(cartTitle);
     alert('hi, do I work')
-    form.hidden = false;
+
+    document.getElementById('main_body').hidden = true;
+    document.getElementById('cart_body').hidden = false;
+    
 }
 
 
