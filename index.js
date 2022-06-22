@@ -1,4 +1,5 @@
 //Variables for Node IDs
+const home = () => document.getElementById('main_menu');
 const mainBody = () => document.getElementById('main_body')
 const menu = () => document.getElementById('menu');
 const checkout = () => document.getElementById('checkout');
@@ -8,6 +9,11 @@ const cartBody = () => document.getElementById('cart_body');
 
 
 //Event listeners
+//Home evemt listener
+const homeEvent = () => {
+    home().addEventListener('click', renderHome)
+}
+
 //Menu event listener
 const menuEvent = () => {
     menu().addEventListener('click', renderMenu)
@@ -32,12 +38,13 @@ const resetMenu = () => {
 }
 
 const resetCart = () => {
-    cartBody().textContent = "";
+    form().textContent = "";
 }
 
 
 //DOM Content Loaded
 document.addEventListener('DOMContentLoaded', () => {
+    homeEvent();
     menuEvent();
     checkoutEvent();
     formSubmit();
@@ -45,6 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 //Event handlers
+//Home event handler
+
+const renderHome = (e) => {
+    e.preventDefault();
+    mainBody();
+    resetCart();
+    resetMenu();
+    alert('hi do I work')
+}
+
 //Menu event handler
 
 const renderMenu = (e) => {
@@ -76,6 +93,7 @@ const renderCheckout = (e) => {
     cartTitle.textContent = "Cart";
     mainBody().appendChild(cartTitle);
     alert('hi, do I work')
+    form.hidden = false;
 }
 
 
@@ -93,11 +111,11 @@ function renderMenuItem(menuItems){
           <a href="#" class="btn btn-primary" id="order">Add To Cart: ${menuItems.cost}</a>
         </div>
     `
-    menuCard.addEventListener('mouseenter', (e) => {
-        e.target.style.border = "thick red";
+    menuCard.addEventListener('mouseover', (e) => {
+        e.target.style.backgroundColor = "red";
         //reset
-        setTimeout(() => {e.target.style.border = "";           
-       }, 500);
+        setTimeout(() => {e.target.style.backgroundColor = "";           
+       }, 5000);
     }, false); 
 
     //add event listener for submitting order function
