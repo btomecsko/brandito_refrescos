@@ -93,6 +93,12 @@ function renderMenuItem(menuItems){
           <a href="#" class="btn btn-primary" id="order">Add To Cart: ${menuItems.cost}</a>
         </div>
     `
+    menuCard.addEventListener('mouseenter', (e) => {
+        e.target.style.border = "thick red";
+        //reset
+        setTimeout(() => {e.target.style.border = "";           
+       }, 500);
+    }, false); 
 
     //add event listener for submitting order function
     menuCard.querySelector('#order').addEventListener('click', (e) => {
