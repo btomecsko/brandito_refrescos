@@ -28,19 +28,6 @@ const formSubmit = () => {
     form().addEventListener('submit', renderForm);
 }
 
-//Reset variables that allow the main and menu body to be changed to an empty object when a specific item is clicked
-const resetMainBody = () => {
-    mainBody().textContent = "";
-}
-
-const resetMenu = () => {
-    menuBody().textContent ="";
-}
-
-const resetCart = () => {
-    cartBody().textContent = "";
-}
-
 
 //DOM Content Loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -56,10 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const renderHome = (e) => {
     e.preventDefault();
-    mainBody();
-    resetCart();
-    resetMenu();
-    alert('hi do I work')
+    document.getElementById('main_body').hidden = false;
+    document.getElementById('cart_body').hidden = true;
+    document.getElementById('menu_row').hidden = true;
 }
 
 //Menu event handler
@@ -68,13 +54,9 @@ const renderMenu = (e) => {
     e.preventDefault();
 
     //removing the main body or about when menu is clicked
-    resetMainBody();
-    resetCart();
-
-    //New main body content when menu is clicked
-    const menuTitle = document.createElement('h2');
-    menuTitle.textContent = "Refresco's Menu"
-    mainBody().appendChild(menuTitle);
+    document.getElementById('main_body').hidden = true;
+    document.getElementById('cart_body').hidden = true;
+    document.getElementById('menu_row').hidden = false;
 
     //initialize menu data when menu is clicked
     getMenuItems();
@@ -83,14 +65,9 @@ const renderMenu = (e) => {
 //Checkout event handler
 const renderCheckout = (e) => {
     e.preventDefault();
-    //debugger;
-    resetMainBody();
-    resetMenu();
-    //debugger;
-
-    alert('hi, do I work')
-
+    
     document.getElementById('main_body').hidden = true;
+    document.getElementById('menu_row').hidden = true;
     document.getElementById('cart_body').hidden = false;
     
 }
