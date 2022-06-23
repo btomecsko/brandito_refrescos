@@ -88,9 +88,9 @@ function renderMenuItem(menuItems){
         </div>
     `
     menuCard.addEventListener('mouseover', (e) => {
-        e.target.style.backgroundColor = "red";
+        e.target.style.boxShadow = "5px 10px";
         //reset
-        setTimeout(() => {e.target.style.backgroundColor = "";           
+        setTimeout(() => {e.target.style.boxShadow = "";           
        }, 5000);
     }, false); 
 
