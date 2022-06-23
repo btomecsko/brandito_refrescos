@@ -1,11 +1,8 @@
 //Variables for Node IDs
 const home = () => document.getElementById('main_menu');
-const mainBody = () => document.getElementById('main_body')
 const menu = () => document.getElementById('menu');
 const checkout = () => document.getElementById('checkout');
-const menuBody = () => document.getElementById('menu_body');
-const form = () => document.getElementById('form_body')
-const cartBody = () => document.getElementById('cart_body');
+const form = () => document.getElementById('form_body');
 
 
 //Event listeners
@@ -87,21 +84,15 @@ function renderMenuItem(menuItems){
           <a href="#" class="btn btn-primary" id="order">Add To Cart: ${menuItems.cost}</a>
         </div>
     `
-    menuCard.addEventListener('mouseover', (e) => {
-        e.target.style.boxShadow = "5px 10px";
-        //reset
-        setTimeout(() => {e.target.style.boxShadow = "";           
-       }, 5000);
-    }, false); 
 
-    //add event listener for submitting order function
-    menuCard.querySelector('#order').addEventListener('click', (e) => {
-        e.preventDefault
-        let orderCard = [];
-        orderCard.push(menuCard);
-        alert('hi, do I work')
-        console.log(orderCard)
-    })
+    //add event listener for highlighting order button
+    menuCard.querySelector('#order').addEventListener('mouseover', (e) => {
+        e.preventDefault();
+        e.target.style.backgroundColor = "red";
+        //reset
+        setTimeout(() => {e.target.style.backgroundColor = "";
+        }, 1000);
+    });
 
     //add menu card to menu body
     document.querySelector('#menu_body').appendChild(menuCard)
@@ -117,7 +108,7 @@ function formMessage(input, message, type) {
     const formMsg = input.parentNode.querySelector("small");
     formMsg.innerText = message;
     // update the class dependent on the input
-    input.className = type ? "success" : "error";
+    input.className = type ? "success form-control" : "error form-control";
     return type;
 }
 
@@ -136,31 +127,6 @@ function hasValue(input, message) {
     return formSuccess(input);
 }
 
-// show a message with a type of the input
-function showMessage(input, message, type) {
-	// get the small element and set the message
-	const msg = input.parentNode.querySelector("small");
-	msg.innerText = message;
-	// update the class for the input
-	input.className = type ? "success" : "error";
-	return type;
-}
-
-function showError(input, message) {
-	return showMessage(input, message, false);
-}
-
-function showSuccess(input) {
-	return showMessage(input, "", true);
-}
-
-function hasValue(input, message) {
-	if (input.value.trim() === "") {
-		return showError(input, message);
-	}
-	return showSuccess(input);
-}
-
 function validateEmail(input, requiredMsg, invalidMsg) {
 	// check if the value is not empty
 	if (!hasValue(input, requiredMsg)) {
@@ -172,7 +138,7 @@ function validateEmail(input, requiredMsg, invalidMsg) {
 
 	const email = input.value.trim();
 	if (!emailRegex.test(email)) {
-		return showError(input, invalidMsg);
+		return formError(input, invalidMsg);
 	}
 	return true;
 }
