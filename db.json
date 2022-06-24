@@ -1,43 +1,38 @@
-{ "menuData" : [
+{ "recipeData" : [
     {
         "id" : 1,
         "name": "Horchata",
         "imageURL": "https://image.shutterstock.com/image-vector/appetizing-taste-mexican-beverages-horchata-600w-2084652403.jpg",
         "altText" : "Photo of Horchata",
-        "description" : "Rice, water, milk, cinnamon and sugar",
-        "cost" : 2.50
+        "description" : "Rice, water, milk, cinnamon and sugar"
     },
     {
         "id" : 2,
         "name" : "Sandia (Watermelon)",
         "imageURL": "./photos/sandia.jpg",
         "altText" : "Photo of Watermelon Agua Fresca",
-        "description" : "Watermelon, water, lime juice and sugar",
-        "cost" : 2.25
+        "description" : "Watermelon, water, lime juice and sugar"
     },
     {
         "id" : 3,
         "name" : "Pepino con limon (Cucumber with Lime)",
         "imageURL": "./photos/pepino_limon.jpg",
         "altText" : "Photo of Pepino con limon Agua Fresca",
-        "description" : "Cucumber, water, lime juice and sugar",
-        "cost" : 2.25
+        "description" : "Cucumber, water, lime juice and sugar"
     },
     {
         "id" : 4,
         "name" : "Durazno (Peach)",
         "imageURL": "./photos/pepino_limon.jpg",
         "altText" : "Photo of Durazno Agua Fresca",
-        "description" : "Peach, water, lime juice and sugar",
-        "cost" : 2.25
+        "description" : "Peach, water, lime juice and sugar"
     },
     {
         "id" : 5,
         "name" : "Sandia Picante (Spicy Watermelon)",
         "imageURL": "./photos/sandia_picante.jpg",
         "altText" : "Photo of Sandia Picante Agua Fresca",
-        "description" : "Watermelon, water, lime juice, chamoy, tajin and sugar",
-        "cost" : 3.25
+        "description" : "Watermelon, water, lime juice, chamoy, tajin and sugar"
     }
 ]
 }

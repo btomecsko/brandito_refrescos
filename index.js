@@ -1,7 +1,7 @@
 //Variables for Node IDs
 const home = () => document.getElementById('main_menu');
-const menu = () => document.getElementById('menu');
-const checkout = () => document.getElementById('checkout');
+const recipes = () => document.getElementById('recipes');
+const subscribe = () => document.getElementById('subscribe');
 const form = () => document.getElementById('form_body');
 
 
@@ -11,14 +11,14 @@ const homeEvent = () => {
     home().addEventListener('click', renderHome)
 }
 
-//Menu event listener
-const menuEvent = () => {
-    menu().addEventListener('click', renderMenu)
+//Recipe event listener
+const recipeEvent = () => {
+    recipes().addEventListener('click', renderRecipes)
 }
 
-//checkout event listener
-const checkoutEvent = () => {
-    checkout().addEventListener('click', renderCheckout)
+//Subscribe event listener
+const subscribeEvent = () => {
+    subscribe().addEventListener('click', renderSubscribe)
 }
 //form event listener
 const formSubmit = () => {
@@ -29,8 +29,8 @@ const formSubmit = () => {
 //DOM Content Loaded
 document.addEventListener('DOMContentLoaded', () => {
     homeEvent();
-    menuEvent();
-    checkoutEvent();
+    recipeEvent();
+    subscribeEvent();
     formSubmit();
     
 })
@@ -41,61 +41,60 @@ document.addEventListener('DOMContentLoaded', () => {
 const renderHome = (e) => {
     e.preventDefault();
     document.getElementById('main_body').hidden = false;
-    document.getElementById('cart_body').hidden = true;
-    document.getElementById('menu_row').hidden = true;
+    document.getElementById('subscribe_body').hidden = true;
+    document.getElementById('recipe_row').hidden = true;
 }
 
-//Menu event handler
+//Recipe event handler
 
-const renderMenu = (e) => {
+const renderRecipes = (e) => {
     e.preventDefault();
 
-    //removing the main body or about when menu is clicked
+    //removing the main body or about when recipe is clicked
     document.getElementById('main_body').hidden = true;
-    document.getElementById('cart_body').hidden = true;
-    document.getElementById('menu_row').hidden = false;
+    document.getElementById('subscribe_body').hidden = true;
+    document.getElementById('recipe_row').hidden = false;
 
-    //initialize menu data when menu is clicked
-    getMenuItems();
+    //initialize recipe data when recipe is clicked
+    getRecipeItems();
     
 }
-//Checkout event handler
-const renderCheckout = (e) => {
+//subscribe event handler
+const renderSubscribe = (e) => {
     e.preventDefault();
     
     document.getElementById('main_body').hidden = true;
-    document.getElementById('menu_row').hidden = true;
-    document.getElementById('cart_body').hidden = false;
+    document.getElementById('recipe_row').hidden = true;
+    document.getElementById('subscribe_body').hidden = false;
     
 }
 
 
 //DOM Render functions variable
-//Menu DOM Render Function
-function renderMenuItem(menuItems){
-    //build menu item card
-    const menuCard = document.createElement("div")
-    menuCard.className = 'card'
-    menuCard.innerHTML = `
-        <img src="${menuItems.imageURL}" class="card-img-top" alt="${menuItems.altText}">
-        <div class="card-body">
-          <h5 class="card-title">${menuItems.name}</h5>
-          <p class="card-text">${menuItems.description}</p>
-          <a href="#" class="btn btn-primary" id="order">Add To Cart: ${menuItems.cost}</a>
+//Recipe DOM Render Function
+function renderRecipeItem(recipeItems){
+    //build recipe item card
+    const recipeCard = document.createElement("div")
+    recipeCard.className = 'card'
+    recipeCard.innerHTML = `
+        <img src="${recipeItems.imageURL}" class="card-img-top" alt="${recipeItems.altText}">
+        <div class="card-body text-white ">
+          <h5 class="card-title">${recipeItems.name}</h5>
+          <p class="card-text">${recipeItems.description}</p>
         </div>
     `
 
-    //add event listener for highlighting order button
-    menuCard.querySelector('#order').addEventListener('mouseover', (e) => {
+    recipeCard.addEventListener('mouseover', (e) => {
         e.preventDefault();
-        e.target.style.backgroundColor = "red";
+        e.target.style.backgroundColor = "black";
         //reset
-        setTimeout(() => {e.target.style.backgroundColor = "";
+        setTimeout(() => {
+            e.target.style.backgroundColor = "";
         }, 1000);
-    });
+    })
 
-    //add menu card to menu body
-    document.querySelector('#menu_body').appendChild(menuCard)
+    //add recipe card to recipe body
+    document.querySelector('#recipe_body').appendChild(recipeCard)
 }
 
 //Form javascript functionality
@@ -146,7 +145,7 @@ function validateEmail(input, requiredMsg, invalidMsg) {
 //Form variables
 const NAME_REQUIRED = "Please enter your name";
 const EMAIL_REQUIRED = "Please enter your email";
-const EMAIL_INVALID = "Please enter a correct email address format";
+
 
 //Form event handler
 const renderForm = (e) => {
@@ -154,18 +153,34 @@ const renderForm = (e) => {
 
     //validate form
     let nameValid = hasValue(document.getElementById('full_name'), NAME_REQUIRED)
-    let emailValid = validateEmail(document.getElementById('inputEmail4'), EMAIL_REQUIRED, EMAIL_INVALID);
+    let emailValid = validateEmail(document.getElementById('inputEmail4'), EMAIL_REQUIRED);
     //if valid, submit form
     if (nameValid && emailValid) {
-        alert("Demo! No Form was posted");
+
+        form().textContent="";
+
+        const formResponse = document.createElement('div')
+        formResponse.className = 'card text-center';
+        formResponse.innerHTML = `
+        <div class="card-header">
+            Brandito's Refresco's
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Muchas Gracias!</h5>
+            <p class="card-text">Thank you for Subscribing to my blog! Stay tuned for future updates and new recipes.</p>
+        </div>
+        <div class="card-footer text-muted"></div>
+        `
+
+        document.querySelector('#thankYou').appendChild(formResponse)
     }
 
 }
 
-//Fetch makes a request to get all the menu items information from the server
+//Fetch makes a request to get all the recipe items information from the server
 
-function getMenuItems(){
-    fetch('http://localhost:3000/menuData')
+function getRecipeItems(){
+    fetch('http://localhost:3000/recipeData')
     .then(res => res.json())
-    .then(menuData => menuData.forEach(menuItems => renderMenuItem(menuItems)))
+    .then(recipeData => recipeData.forEach(recipeItems => renderRecipeItem(recipeItems)))
 }
