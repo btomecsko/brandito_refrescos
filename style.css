@@ -1,8 +1,19 @@
 #main_body{
     margin-top: 25px; 
+    text-align: center;
 }
 
-h2{
+#recipe_row{
+    margin-top: 25px; 
+    text-align: center;
+}
+
+#recipe_row h4 {
+    font-style: italic;
+}
+
+#subscribe_body h2{
+    margin-top: 25px; 
     text-align: center;
 }
 
