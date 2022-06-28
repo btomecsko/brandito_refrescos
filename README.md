@@ -3,6 +3,9 @@
 ### Overview
 Brandito's Refresco's is a blog site that displays various Agua Fresca's recipe cards. 
 
+### Requirements
+json-server
+
 ### How to install / use
 Steps:
 1: Once you have this cloned to your device, you will want to ensure that you are in the phase-1-final folder and run open index.html. This will open the index file on your browser.
