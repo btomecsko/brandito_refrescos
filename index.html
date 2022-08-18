@@ -8,70 +8,78 @@
     <!--Custom CSS-->
     <link rel="stylesheet" href="style.css">
 
+    <!--Google Fonts-->
+    <!--Header Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <!--Paragraph font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    
     <title>Brandito's Refrescos</title>
 </head>
 
 <body>
     <!--Navigation-->
-    <section id="navBar">
-        <ul class="nav nav-pills" style = "background-color: #FFA332;">
-            <li class="nav-item">
-              <a class="nav-link" href="#" id="main_menu">Brandito's Refrescos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" id="recipes">Agua Frescas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" id="subscribe">Subscribe</a>
-            </li>
-          </ul>
-    </section>
-    <div class="container">
-        <!--Main Body--> 
-        <div class="row" id="main_body">
-            <h2>Brandito's Refrescos!</h2>
-            <h4>Bienvendios / Welcome to Brandito's Refrescos!</h4>
-            <p>I founded Brandito's Refrescos as a way to share my love of Agua Frescas and culture with the global community. Agua Fresca or 'fresh water' is staple drink in many Latin(x)/Hispanic countries. They can be found either in restaurants or food vendors. As a Mexican-American, I've grown up enjoying my culture and foods to which I have started learning to make at home myself. That is where Brandito's Refrescos comes in. On this site, I am starting small and sharing some Agua Fresca recipes. To find the recipes, click the 'Agua Frescas' button above. Please also subsribe to receive future updates or additions with new recipes.</p>
-        </div>
-        <!--Recipe Body--> 
-        <div class="row" id="recipe_row" hidden>
-            <h2> Refresco's Recipes</h2>
-            <h4>Hover over space under the image to see the recipe</h4>
-            <div class="col"></div>
-            <div class="col" id="recipe_body">
-            <!--Recipe Items Go Here-->
-            </div>
-            <div class="col"></div>
-        </div>
-        <!--Subscribe Body-->
-        <section id="subscribe_section">
-        <div class="row" id="subscribe_body" hidden>
-          <h2>Subscribe</h2>
-          <div class="col"></div>
-          <div class="col" id="thankYou">
-          <!--Thank You Goes Here-->
+    <header class="main_header">
+      <nav class="navbar navbar-expand-lg d-flex justify-content-center" style="background-color: #3C7646; border-style: dotted; border-color: black;">
+            <h1>Brandito's Refrescos</h1>
+        </nav>
+      </header>
+    <div class="container rounded" id="divCon">
+        <!--Main Body-->
+      <div class="row">
+        <div class="card text-center">
+            <img class="card-img-top" src="./photos/serape.jpg" alt="Card image cap">
+          <div class="card-body" id="main_body">
+          <div class="card-header">
+            <h2>Bienvendios to Brandito's Refrescos!</h2>
           </div>
-          <div class="col">
+          <p class="card-text">I founded Brandito's Refrescos as a way to share my love of Agua Frescas and culture with the global community. Agua Fresca or 'fresh water' is staple drink in many Latin(x)/Hispanic countries. They can be found either in restaurants or food vendors. As a Mexican-American, I've grown up enjoying my culture and foods to which I have started learning to make at home myself. That is where Brandito's Refrescos comes in. On this site, I am starting small and sharing some Agua Fresca recipes. To find the recipes, click the 'Refresco's Recipes' below. Please also subsribe to receive future updates or additions with new recipes.</p>
           </div>
-          <form class="row g-3" id="form_body">
-            <div class="col-12">
-              <label for="full_name" class="form-label">Name</label>
-              <input type="text" class="form-control" placeholder="Full name" aria-label="Full name" id="full_name">
-              <small></small>
-            </div>
-            <div class="col-12">
-              <label for="inputEmail4" class="form-label">Email</label>
-              <input type="email" class="form-control" placeholder="Email" id="inputEmail4">
-              <small></small>
-            </div>
-            <div class="col-12">
-              <button type="submit" class="btn btn-primary">Subscribe</button>
-            </div>
-          </form>
+        </div>
       </div>
-    </section>
+        <!--Recipe Body--> 
+      <div class="row">
+        <div class="col-sm-6">
+          <h3 class ="card-header" id="recipe_row" style="background-color: #F2F4FF;">Refresco's Recipes (Click Here)</h3>
+          <div id="recipe_body">
+          <!--Recipe Items Go Here-->
+          </div>
+        </div>
+
+        <!--Subscribe Body-->
+        <div class="col-sm-6" id="subscribe_body">
+          <h3>Subscribe</h3>
+            <div class="col" id="thankYou">
+              <!--Thank You Goes Here-->
+            </div>
+            <!--Form-->
+            <form class="row g-3" id="form_body">
+              <div class="col-12">
+                <label for="full_name" class="form-label" style="font-weight: bold;">Name</label>
+                <input type="text" class="form-control" placeholder="Full name" aria-label="Full name" id="full_name">
+                <small></small>
+              </div>
+              <div class="col-12">
+                <label for="inputEmail4" class="form-label" style="font-weight: bold;">Email</label>
+                <input type="email" class="form-control" placeholder="Email" id="inputEmail4">
+                <small></small>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+              </div>
+            </form>
+        </div>
+          
+      </div>
+      </div>
     </div>
     <script src="index.js"></script>
 </body>

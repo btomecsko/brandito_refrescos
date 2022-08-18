@@ -1,6 +1,25 @@
-#main_body{
-    margin-top: 25px; 
-    text-align: center;
+h1 {
+    font-family: 'Lobster', cursive;
+    border-style: dotted;
+    border-color: black;
+    padding: 10px 75px 10px 75px;
+    margin-top: 15px;
+    
+}
+
+h2{
+    font-family: 'Lobster', cursive;
+}
+
+h3{
+    font-family: 'Lobster', cursive;
+    background-color: #F2F4FF;
+    padding: 4px;
+}
+
+p{
+    font-family: 'Shadows Into Light Two';
+    color: black;
 }
 
 #recipe_row{
@@ -8,15 +27,26 @@
     text-align: center;
 }
 
-#recipe_row h4 {
-    font-style: italic;
-}
-
-#subscribe_body h2{
+#subscribe_body h3{
     margin-top: 25px; 
     text-align: center;
 }
 
 .card-body {
     text-align: center;
+    font-family: 'Shadows Into Light Two';
 }
+
+#recipeCard {
+    background-color: #F2F4FF;
+}
+
+.row {
+    margin-top: 25px;
+    background-color: #3C7646;
+}
+
+#divCon{
+    margin-top: 25px;
+}
+
