@@ -8,11 +8,32 @@ const form = document.getElementById('form_body');
 document.addEventListener('DOMContentLoaded', () => {
     recipeEvent();
     formSubmit();
+    recipeMouse();
     
 })
 
 //Recipe Functionality 
-//Recipe event listener
+
+//Recipe Mouseover Event
+const recipeMouse = () => {
+    recipes.addEventListener('mouseover', (e) => {
+        e.preventDefault();
+
+        //change response
+        recipes.innerText = "Click Here"
+        e.target.style.textShadow = " 2px 2px yellow";
+
+        //Reset
+        setTimeout(() => {
+            recipes.innerText = "Refresco's Recipes";
+            e.target.style.textShadow = "";
+        }, 1000);
+        //alert("I do work!");
+    })
+}
+
+
+//Recipe Click event listener
 const recipeEvent = () => {
     recipes.addEventListener('click', (e) => {
         e.preventDefault();
@@ -38,7 +59,7 @@ function renderRecipeItem(recipeItems){
         </div>
     `
 
-     //Like Button Event Listener
+     //Like Button Event
     let likeButton = recipeCard.querySelector('#likeButton'),
     count = 0;
 
