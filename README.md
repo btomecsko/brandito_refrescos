@@ -13,4 +13,4 @@ Steps:
 ### 3. Feel free to explore the site! There are two click events and a form submission event.
         * On the bottom left, you will a header called Refresco's Recipes. If you click the header, it will display all available recipes in the db.json in recipe cards.
         * On the recipe cards, you will see a like button. If you click the button, it will increase the number of times that you have liked it. 
-        * On the bottom right, you can enter your information to trigger a submit event. No data or information is collected. However, a message will display thanking you for subscribing. Also, if you do not enter the information correctly, a popup will appear for the email asking for the correct email format to be input.
+        * On the bottom right, you can enter your information to trigger a submit event. No data or information is collected. However, a message will display thanking you for subscribing. Also, if you do not enter the information correctly, a popup will appear for the email asking for the correct email format to be input.# branditosrefrescos
